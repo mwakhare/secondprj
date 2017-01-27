@@ -138,7 +138,8 @@ exports.postOneHandler = function (req, res)
         else
         {
             res.json (true);
-            res.json (savedFeedback);
+            //res.json (savedFeedback);
+
             console.log (newFeedback.username + " added successfully");
         } 
     }); //newFeedback.save
