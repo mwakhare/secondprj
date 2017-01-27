@@ -1,9 +1,9 @@
 var mongoose = require ('mongoose');
 
 // var UserModel = mongoose.model ('UserModel');
-// var FeedBackModel = mongoose.model ('FeedBackModel');
+var FeedBackModel = mongoose.model ('FeedBackModel');
 
-// var app = require ('../app'); //expressJS allows circular dependencies
+var app = require ('../app'); //expressJS allows circular dependencies
 
 
 // exports.authHandler = function (req, res)
@@ -111,38 +111,38 @@ var mongoose = require ('mongoose');
 
 // }; //s/getOneHandler
 
-// exports.postOneHandler = function (req, res)
-// {
-//   //app.post('/v1/feedbacks'
+exports.postOneHandler = function (req, res)
+{
+  //app.post('/v1/feedbacks'
 
-//   var message;
+  var message;
 
-//   var newFeedback = new FeedBackModel ();
+  var newFeedback = new FeedBackModel ();
 
-//   newFeedback.name = req.body.name;
-//   newFeedback.location = req.body.location;
-//   newFeedback.response1 = req.body.response1;
-//   newFeedback.response2 = req.body.response2;
-//   newFeedback.response3 = req.body.response3;
-//   newFeedback.response4 = req.body.response4;
-//   newFeedback.comment = req.body.comment;
+  newFeedback.username = req.body.username;
+  newFeedback.location = req.body.location;
+  newFeedback.response1 = req.body.response1;
+  newFeedback.response2 = req.body.response2;
+  newFeedback.response3 = req.body.response3;
+  newFeedback.response4 = req.body.response4;
+  newFeedback.comment = req.body.comment;
 
-//    //save to db through model :: Add a record
-//    newFeedback.save (function (err, savedFeedback)
-//    {
-//         if (err)
-//         {
-//             res.json (false);
-//             console.log (newFeedback.name + " could not be added");
-//         }
-//         else
-//         {
-//             res.json (true);
-//             console.log(newFeedback.name + " added successfully");
-//         } 
-//     }); //newTech.save
+   //save to db through model :: Add a record
+   newFeedback.save (function (err, savedFeedback)
+   {
+        if (err)
+        {
+            res.json (false);
+            console.log (newFeedback.username + " could not be added");
+        }
+        else
+        {
+            res.json (true);
+            console.log (newFeedback.username + " added successfully");
+        } 
+    }); //newTech.save
 
-// }; //postOneHandler
+}; //postOneHandler
 
 
 // exports.updateOneHandler = function (req, res)

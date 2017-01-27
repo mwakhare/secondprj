@@ -4,7 +4,7 @@ var session = require ('express-session');
 
 var db = require ('./models/db.js');  // db.js must be required before routes.js
 var app = express(); // exporting apps must be done before routes.js
-//var routes = require ('./routes/routes.js');
+var routes = require ('./routes/route.js');
 
 
 //app.use (express.static (__dirname + "/public"));
@@ -19,7 +19,7 @@ var app = express(); // exporting apps must be done before routes.js
 // REST Routes
 //app.get ('/v1/feedbacks', route.getAllHandler);  // return all feedbacks records
 //app.get ('/v1/feedbacks/:feedback', route.getOneHandler);  // return one record
-//app.post ('/v1/feedbacks', route.postOneHandler); // add new tech record
+app.post ('/v1/feedbacks', route.postOneHandler); // add new tech record
 //app.put ('/v1/feedbacks/:feedback', route.updateOneHandler); // update a record
 //app.delete ('/v1/feedbacks/:feedback', route.deleteOneHandler); // detete a record
 
