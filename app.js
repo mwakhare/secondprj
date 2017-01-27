@@ -2,7 +2,7 @@ var express = require ('express');
 //var bodyparser = require ('body-parser');
 var session = require ('express-session');
 
-//var db = require ('./models/db.js');  // db.js must be required before routes.js
+var db = require ('./models/db.js');  // db.js must be required before routes.js
 var app = express(); // exporting apps must be done before routes.js
 //var routes = require ('./routes/routes.js');
 
