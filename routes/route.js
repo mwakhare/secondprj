@@ -20,29 +20,43 @@ exports.getAllHandler = function (req, res)
             res.json (feedBackArray);
             console.log ("FeedBack array being returned=" + JSON.stringify (feedBackArray));
         } 
+        else
+        {
+            res.json ({error: -999, message: 'Records not found.'});    
+            return;
+        }
     }); //FeedBackModel.find
 
 }; //getAllHandler
 
 
-// exports.getOneHandler = function(req, res)
-// {
-//     //app.get ('/v1/feedbacks/:feedback'
+exports.getOneHandler = function (req, res)
+{
+    //app.get ('/v1/feedbacks/:id'
     
-//     var feedBackToEdit = req.params.feedback;
+    var feedbackToFind = req.params.id;
 
-//     console.log ("feedbackToEdit = "  + feedBackToEdit);
+    console.log ("feedbackToFind = "  + feedbackToFind);
     
-//     FeedBackModel.findOne ({feedBack:feedBackToEdit}, function(err, feedbackRec)
-//     {
-//         if (!err)
-//         {
-//             console.log (chalk.yellow ("Going to edit -> [" + feedbackRec.name + " : " + feedbackRec.comment + "]"));
-//             res.json (feedbackRec);
-//         } 
-//     }); //FeedBackModel.findOne
+    FeedBackModel.findOne ({username : feedbackToFind}, function(err, feedbackRec)
+    {
+        if (err)
+        {
+            res.json ({error: -111, message: 'Record not found.'});    
+            return;
+        }
 
-// }; //s/getOneHandler
+        if (!err)
+        {
+            console.log ("Going to edit -> [" + feedbackRec.username + " : " + feedbackRec.comment + "]");
+            res.json (feedbackRec);
+        } 
+        
+       
+    }); //FeedBackModel.findOne
+
+}; //s/getOneHandler
+
 
 exports.postOneHandler = function (req, res)
 {
