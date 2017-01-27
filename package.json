@@ -1,0 +1,22 @@
+{
+  "name": "secondprj",
+  "version": "1.0.0",
+  "description": "This is simple API prj.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwakhare/secondprj.git"
+  },
+  "keywords": [
+    "simple"
+  ],
+  "author": "Milind",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwakhare/secondprj/issues"
+  },
+  "homepage": "https://github.com/mwakhare/secondprj#readme"
+}
