@@ -25,30 +25,21 @@ mongoose.connection.on ('disconnected', function ()
 }
 );
 
-// ***** *******  *  *****   Schema defs
-// var userSchema = new mongoose.Schema({
-//   username: {type: String, unique:true},
-//   location: {type: String},
-//   password: String
-// }, {collection: 'UsersCol'});
-
 var feedbackSchema = new mongoose.Schema (
     {
-      username: {type: String},
-      location: {type: String},
-      response1: {type: String},
-      response2: {type: String},
-      response3: {type: String},
-      response4: {type: String},
-      comment: {type: String}
-
+        username: {type: String},
+        location: {type: String},
+        response1: {type: String},
+        response2: {type: String},
+        response3: {type: String},
+        response4: {type: String},
+        comment: {type: String}
     }, 
     {
         collection: 'feedbackCol'
     }
   );
 
-// register the User model
-//mongoose.model( 'UserModel', userSchema);
+// register the Feedback model
 mongoose.model ('FeedbackModel', feedbackSchema);
 

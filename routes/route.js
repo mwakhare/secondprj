@@ -1,96 +1,29 @@
 var mongoose = require ('mongoose');
-
-// var UserModel = mongoose.model ('UserModel');
 var FeedBackModel = mongoose.model ('FeedbackModel');
 
 var app = require ('../app'); //expressJS allows circular dependencies
 
 
-// exports.authHandler = function (req, res)
-// {
-// 	var nmReq = req.body.loginName;
-// 	var pwdReq = req.body.loginPassword;
+/* ******** ******** ******** ******** ******** ********  */
+/* ******** ******** REST API HANDLERS ******** ********  */
+/* ******** ******** ******** ******** ******** ********  */
 
-// 	var authResult;
+
+exports.getAllHandler = function (req, res)
+{
+    //app.get ('/v1/feedbacks'
     
-//     req.session.loggedin = false;
+    FeedBackModel.find ({}, function (err, feedBackArray)
+    {
+        if (!err)
+        {
+            res.json (feedBackArray);
+            console.log ("FeedBack array being returned=" + JSON.stringify (feedBackArray));
+        } 
+    }); //FeedBackModel.find
 
-// 	UserModel.findOne ({username:nmReq}, function (err, userObj)
-//     {
-//         var authResult;
-        
-//         if (userObj === null)
-//         {
-//             authResult = false;
-//         } 
-//         else if (pwdReq === userObj.password)
-//         {
-//             authResult = true;
-//         } 
-//         else
-//         {
-//             authResult = false;
-//         }
-        
-//         res.json (authResult);
-        
-//         console.log ("Login Name %s, Password %s. Login outcome [%s]", nmReq, pwdReq, authResult);
-        
-//     }
-//     );//UserModel.findOne
+}; //getAllHandler
 
-// }; //authHandler
-
-
-// exports.registerUserHandler = function (req, res)
-// {
-//    var newuser = new UserModel();
-
-//    newuser.username = req.body.loginName;;
-//    newuser.location = req.body.location;
-//    newuser.password = req.body.loginPassword;
-
-//    console.log ("Register: " + newuser.username + "  " + newuser.location + " " + newuser.password);
-  
-//    //save to db through model :: Add a record
-//    newuser.save (function (err, savedUser)
-//    {
-//         if (err)
-//         {
-//             var message = "A user already exists with that username or email";
-        
-//             console.log (message);
-
-//             res.json (false);
-//         }
-//         else
-//         {
-//             req.session.newuser = savedUser.username;
-
-//             res.json(true);
-//         }
-//    }); //newuser.save
-
-// };//registerUserHandler
- 
-
-// /* ******** ******** ******** ******** ******** ********  */
-// /* ******** ******** REST API HANDLERS ******** ********  */
-// /* ******** ******** ******** ******** ******** ********  */
-// exports.getAllHandler = function (req, res)
-// {
-//     //app.get ('/v1/feedbacks'
-    
-//     FeedBackModel.find ({}, function (err, feedBackArray)
-//     {
-//         if (!err)
-//         {
-//             res.json (feedBackArray);
-//             console.log ("FeedBack array being returned=" + JSON.stringify (feedBackArray));
-//         } 
-//     }); //FeedBackModel.find
-
-// }; //getAllHandler
 
 // exports.getOneHandler = function(req, res)
 // {
@@ -115,8 +48,6 @@ exports.postOneHandler = function (req, res)
 {
   //app.post('/v1/feedbacks'
 
-  //var message;
-
   var newFeedback = new FeedBackModel ();
 
   newFeedback.username = req.body.username;
@@ -138,7 +69,7 @@ exports.postOneHandler = function (req, res)
         else
         {
             res.json (true);
-            //res.json (savedFeedback);
+            res.json (savedFeedback);
 
             console.log (newFeedback.username + " added successfully");
         } 
