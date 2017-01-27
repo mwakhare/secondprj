@@ -3,7 +3,7 @@ var mongoose = require ('mongoose');
 // var UserModel = mongoose.model ('UserModel');
 var FeedBackModel = mongoose.model ('FeedbackModel');
 
-//var app = require ('../app'); //expressJS allows circular dependencies
+var app = require ('../app'); //expressJS allows circular dependencies
 
 
 // exports.authHandler = function (req, res)
@@ -140,7 +140,7 @@ exports.postOneHandler = function (req, res)
             res.json (true);
             console.log (newFeedback.username + " added successfully");
         } 
-    }); //newTech.save
+    }); //newFeedback.save
 
 }; //postOneHandler
 

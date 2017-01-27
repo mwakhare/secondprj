@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/mwakhare/secondprj#readme",
   "dependencies": {
+    "body-parser": "^1.16.0",
     "express": "^4.14.0",
     "express-session": "^1.15.0",
     "mongoose": "^4.7.8"

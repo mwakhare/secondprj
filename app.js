@@ -1,5 +1,5 @@
 var express = require ('express');
-//var bodyparser = require ('body-parser');
+var bodyparser = require ('body-parser');
 var session = require ('express-session');
 
 var db = require ('./models/db.js');  // db.js must be required before routes.js
@@ -8,9 +8,10 @@ var routes = require ('./routes/route.js');
 
 
 //app.use (express.static (__dirname + "/public"));
-//app.use (bodyparser.json ());
 
-//app.use (bodyparser.urlencoded ({extended:false}));
+app.use (bodyparser.json ());
+app.use (bodyparser.urlencoded ({extended:false}));
+
 //app.use (session ({secret: "secret",  resave : true,  saveUninitialized : false}));
 
 //app.post ('/auth', route.authHandler);
