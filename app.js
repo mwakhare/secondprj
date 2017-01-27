@@ -16,7 +16,7 @@ app.get ('/v1/feedbacks', routes.getAllHandler);  				// return all feedbacks re
 app.get ('/v1/feedbacks/:id', routes.getOneHandler);  			// return one record
 app.post ('/v1/feedbacks', routes.postOneHandler); 				// add new feedback record
 //app.put ('/v1/feedbacks/:feedback', route.updateOneHandler); 	// update a record
-//app.delete ('/v1/feedbacks/:feedback', routes.deleteOneHandler); // detete a record
+app.delete ('/v1/feedbacks/:id', routes.deleteOneHandler); 		// detete a record
 
 
 var port = process.env.PORT || 3000;

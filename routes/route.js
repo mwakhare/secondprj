@@ -4,9 +4,7 @@ var FeedBackModel = mongoose.model ('FeedbackModel');
 var app = require ('../app'); //expressJS allows circular dependencies
 
 
-/* ******** ******** ******** ******** ******** ********  */
-/* ******** ******** REST API HANDLERS ******** ********  */
-/* ******** ******** ******** ******** ******** ********  */
+// ---------------- REST API HANDLERS ---------------------- //
 
 
 exports.getAllHandler = function (req, res)
@@ -42,13 +40,13 @@ exports.getOneHandler = function (req, res)
     {
         if (err)
         {
-            res.json ({error: -111, message: 'Record not found.'});    
-            return;
+            res.json (false);   
+            console.log ("NOT found: " + feedbackRec.username);
         }
 
         if (!err)
         {
-            console.log ("Going to edit -> [" + feedbackRec.username + " : " + feedbackRec.comment + "]");
+            console.log ("Record found: [" + feedbackRec.username + " : " + feedbackRec.comment + "]");
             res.json (feedbackRec);
         } 
         
@@ -126,25 +124,27 @@ exports.postOneHandler = function (req, res)
 //                         );
 // }; //updateOneHandler
 
-// exports.deleteOneHandler = function (req, res)
-// {
-//     //app.delete ('/v1/feedbacks/:feedback'
-//     var feedbackToEdit = req.params.feedback;
 
-//     FeedBackModel.remove (  {name:feedbackToEdit}, 
-//                             function (err, feedbackRec)
-//                             {
-//                                 if (err)
-//                                 {
-//                                     res.json (false);
-//                                     console.log (feedbackToEdit + " could not be deleted");
-//                                 }
-//                                 else
-//                                 {
-//                                     res.json(true);
-//                                     console.log (feedbackToEdit + " deleted successfully");
-//                                 } 
-//                             }
-//                         ); //FeedBackModel.remove
+exports.deleteOneHandler = function (req, res)
+{
+    //app.delete ('/v1/feedbacks/:id'
 
-// }; //deleteOneHandler
+    var feedbackToDelete = req.params.id;
+
+    FeedBackModel.remove ( {username : feedbackToDelete}, 
+                            function (err, feedbackRec)
+                            {
+                                if (err)
+                                {
+                                    res.json (false);
+                                    console.log (feedbackToDelete.username  + " could not be deleted");
+                                }
+                                else
+                                {
+                                    res.json(true);
+                                    console.log ("Record is deleted successfully");
+                                } 
+                            }
+                        ); //FeedBackModel.remove
+
+}; //deleteOneHandler
