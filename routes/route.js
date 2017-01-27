@@ -16,11 +16,11 @@ exports.getAllHandler = function (req, res)
         if (!err)
         {
             res.json (feedBackArray);
-            console.log ("FeedBack array being returned=" + JSON.stringify (feedBackArray));
+            console.log ("\n\ngetAllHandler: All FeedBack Array: " + JSON.stringify (feedBackArray));
         } 
         else
         {
-            res.json ({error: -999, message: 'Records not found.'});    
+            res.json (false);    
             return;
         }
     }); //FeedBackModel.find
@@ -34,14 +34,14 @@ exports.getOneHandler = function (req, res)
     
     var feedbackToFind = req.params.id;
 
-    console.log ("feedbackToFind = "  + feedbackToFind);
+    console.log ("\n\ngetOneHandler One feedback = "  + feedbackToFind);
     
     FeedBackModel.findOne ({username : feedbackToFind}, function(err, feedbackRec)
     {
         if (err)
         {
             res.json (false);   
-            console.log ("NOT found: " + feedbackRec.username);
+            console.log ("\n\ngetOneHandler: NOT found: " + feedbackRec.username);
         }
 
         if (!err)
@@ -76,14 +76,14 @@ exports.postOneHandler = function (req, res)
         if (err)
         {
             res.json (false);
-            console.log (newFeedback.username + " could not be added");
+            //console.log (newFeedback.username + " could not be added");
         }
         else
         {
             res.json (true);
-            res.json (savedFeedback);
+            //res.json (savedFeedback);
 
-            console.log (newFeedback.username + " added successfully");
+            //console.log (newFeedback.username + " added successfully");
         } 
     }); //newFeedback.save
 
@@ -138,7 +138,7 @@ exports.deleteOneHandler = function (req, res)
                                 else
                                 {
                                     res.json(true);
-                                    console.log ("Record is deleted successfully");
+                                    console.log ("\n\ndeleteOneHandlerRecord is deleted successfully");
                                 } 
                             }
                         ); //FeedBackModel.remove

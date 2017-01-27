@@ -23,5 +23,5 @@ var port = process.env.PORT || 3000;
 
 app.listen (port, function ()
 {
-	console.log ('HTTP server is listening on port: ' + port);
+	console.log ('\n\nHTTP server is listening on port: ' + port);
 });
