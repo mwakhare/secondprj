@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/mwakhare/secondprj/issues"
   },
-  "homepage": "https://github.com/mwakhare/secondprj#readme"
+  "homepage": "https://github.com/mwakhare/secondprj#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
