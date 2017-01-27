@@ -35,18 +35,18 @@ mongoose.connection.on ('disconnected', function ()
 //   password: String
 // }, {collection: 'UsersCol'});
 
-// var feedBackSchema = new mongoose.Schema({
-//   name: {type: String},
-//   location: {type: String},
-//   response1: {type: String},
-//   response2: {type: String},
-//   response3: {type: String},
-//   response4: {type: String},
-//   comment: {type: String}
+var feedbackSchema = new mongoose.Schema({
+  username: {type: String},
+  location: {type: String},
+  response1: {type: String},
+  response2: {type: String},
+  response3: {type: String},
+  response4: {type: String},
+  comment: {type: String}
 
-// }, {collection: 'FeedCol'});
+}, {collection: 'feedbackCol'});
 
-// // register the User model
-// mongoose.model( 'UserModel', userSchema);
-// mongoose.model( 'FeedBackModel', feedBackSchema);
+// register the User model
+//mongoose.model( 'UserModel', userSchema);
+mongoose.model( 'FeedbackModel', feedbackSchema);
 
