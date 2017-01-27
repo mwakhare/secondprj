@@ -1,7 +1,7 @@
 var mongoose = require ('mongoose');
 
 // var UserModel = mongoose.model ('UserModel');
-var FeedBackModel = mongoose.model ('FeedBackModel');
+var FeedBackModel = mongoose.model ('FeedbackModel');
 
 //var app = require ('../app'); //expressJS allows circular dependencies
 
