@@ -19,7 +19,7 @@ var routes = require ('./routes/route.js');
 // REST Routes
 //app.get ('/v1/feedbacks', route.getAllHandler);  // return all feedbacks records
 //app.get ('/v1/feedbacks/:feedback', route.getOneHandler);  // return one record
-app.post ('/v1/feedbacks', route.postOneHandler); // add new tech record
+app.post ('/v1/feedbacks', routes.postOneHandler); // add new feedback record
 //app.put ('/v1/feedbacks/:feedback', route.updateOneHandler); // update a record
 //app.delete ('/v1/feedbacks/:feedback', route.deleteOneHandler); // detete a record
 

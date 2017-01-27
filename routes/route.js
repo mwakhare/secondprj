@@ -3,7 +3,7 @@ var mongoose = require ('mongoose');
 // var UserModel = mongoose.model ('UserModel');
 var FeedBackModel = mongoose.model ('FeedBackModel');
 
-var app = require ('../app'); //expressJS allows circular dependencies
+//var app = require ('../app'); //expressJS allows circular dependencies
 
 
 // exports.authHandler = function (req, res)
@@ -115,7 +115,7 @@ exports.postOneHandler = function (req, res)
 {
   //app.post('/v1/feedbacks'
 
-  var message;
+  //var message;
 
   var newFeedback = new FeedBackModel ();
 
