@@ -15,7 +15,7 @@ app.use (bodyparser.urlencoded ({extended:false}));
 app.get ('/v1/feedbacks', routes.getAllHandler);  				// return all feedbacks records
 app.get ('/v1/feedbacks/:id', routes.getOneHandler);  			// return one record
 app.post ('/v1/feedbacks', routes.postOneHandler); 				// add new feedback record
-//app.put ('/v1/feedbacks/:feedback', route.updateOneHandler); 	// update a record
+app.put ('/v1/feedbacks/:id', routes.updateOneHandler); 		// update a record
 app.delete ('/v1/feedbacks/:id', routes.deleteOneHandler); 		// detete a record
 
 

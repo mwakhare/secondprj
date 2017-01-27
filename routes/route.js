@@ -90,39 +90,35 @@ exports.postOneHandler = function (req, res)
 }; //postOneHandler
 
 
-// exports.updateOneHandler = function (req, res)
-// {
-//     //app.put ('/v1/feedbacks/:feedback'
+exports.updateOneHandler = function (req, res)
+{
+    //app.put ('/v1/feedbacks/:id'
 
-//     var feedbackName = req.params.name;
-//     var feedbackLocation = req.params.location;
-//     var feedbackResponse1 = req.params.response1;
-//     var feedbackResponse2 = req.params.response2;
-//     var feedbackResponse3 = req.params.response3;
-//     var feedbackResponse4 = req.params.response4;
-//     var feedbackComment = req.params.comment;
+    var feedbackUserName = req.params.username;
+    var feedbackLocation = req.body.location;
+    // var feedbackResponse1 = req.params.response1;
+    // var feedbackResponse2 = req.params.response2;
+    // var feedbackResponse3 = req.params.response3;
+    // var feedbackResponse4 = req.params.response4;
+    // var feedbackComment = req.params.comment;
 
-//     //console.log ("Saving Edited records : " + feedbackName + " : " + feedbackComment);
-    
-//     var message;
-    
-//     //update rec through model
-//     FeedBackModel.update (  {name: feedbackName}, 
-//                             {$set: { comment: feedbackComment }}, 
-//                             {multi:false}, 
-//                             function (err, updatedRec)
-//                             {
-//                                 if (err)
-//                                 {
-//                                     res.json (false);
-//                                 }
-//                                 else
-//                                 {
-//                                     res.json (true);
-//                                 }
-//                             }
-//                         );
-// }; //updateOneHandler
+   FeedBackModel.update ( {username: feedbackUserName}, 
+                            { $set:{ location : feedbackLocation }}, 
+                            {multi:false}, 
+                            function (err, updatedRec)
+                            {
+                                if (err)
+                                {
+                                    res.json (false);
+                                }
+                                else
+                                {
+                                    //res.json (true);
+                                    res.json (updatedRec);
+                                }
+                            }
+                        );
+}; //updateOneHandler
 
 
 exports.deleteOneHandler = function (req, res)
