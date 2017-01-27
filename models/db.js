@@ -1,9 +1,6 @@
-//var chalk = require('chalk');
-var mongoose = require( 'mongoose' );
-
+var mongoose = require('mongoose');
 
 var dbURI = 'mongodb://127.0.0.1/restfulDB';
-//var dbURI =  'mongodb://edu:edu@ds015879.mlab.com:15879/edurekadb';
 
 console.log ("Establishing connection to the DB");
 
@@ -35,18 +32,23 @@ mongoose.connection.on ('disconnected', function ()
 //   password: String
 // }, {collection: 'UsersCol'});
 
-var feedbackSchema = new mongoose.Schema({
-  username: {type: String},
-  location: {type: String},
-  response1: {type: String},
-  response2: {type: String},
-  response3: {type: String},
-  response4: {type: String},
-  comment: {type: String}
+var feedbackSchema = new mongoose.Schema (
+    {
+      username: {type: String},
+      location: {type: String},
+      response1: {type: String},
+      response2: {type: String},
+      response3: {type: String},
+      response4: {type: String},
+      comment: {type: String}
 
-}, {collection: 'feedbackCol'});
+    }, 
+    {
+        collection: 'feedbackCol'
+    }
+  );
 
 // register the User model
 //mongoose.model( 'UserModel', userSchema);
-mongoose.model( 'FeedbackModel', feedbackSchema);
+mongoose.model ('FeedbackModel', feedbackSchema);
 
