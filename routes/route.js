@@ -36,7 +36,7 @@ exports.getOneHandler = function (req, res)
 
     console.log ("\n\ngetOneHandler One feedback = "  + feedbackToFind);
     
-    FeedBackModel.findOne ({username : feedbackToFind}, function(err, feedbackRec)
+    FeedBackModel.findById (feedbackToFind, function(err, feedbackRec)
     {
         if (err)
         {
@@ -94,7 +94,7 @@ exports.updateOneHandler = function (req, res)
 {
     //app.put ('/v1/feedbacks/:id'
 
-    var feedbackUserName = req.params.username;
+    var feedbackUserName = req.params.id;
     var feedbackLocation = req.body.location;
     // var feedbackResponse1 = req.params.response1;
     // var feedbackResponse2 = req.params.response2;
@@ -102,7 +102,7 @@ exports.updateOneHandler = function (req, res)
     // var feedbackResponse4 = req.params.response4;
     // var feedbackComment = req.params.comment;
 
-   FeedBackModel.update ( {username: feedbackUserName}, 
+   FeedBackModel.update ( {_id: feedbackUserName }, 
                             { $set:{ location : feedbackLocation }}, 
                             {multi:false}, 
                             function (err, updatedRec)
@@ -127,7 +127,7 @@ exports.deleteOneHandler = function (req, res)
 
     var feedbackToDelete = req.params.id;
 
-    FeedBackModel.remove ( {username : feedbackToDelete}, 
+    FeedBackModel.remove ( {_id : feedbackToDelete}, 
                             function (err, feedbackRec)
                             {
                                 if (err)
